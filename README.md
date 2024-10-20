@@ -18,6 +18,8 @@ The project aims to analyze customer behavior to enhance marketing strategies fo
 
 **Context**: SuperStore, a global retail company with a large customer base, seeks to segment customers for its marketing campaigns. Marketing department has requested the Data Analysis Department's assistance in implementing the RFM model.
 
+**RFM model:** The model segments customers based on three key metrics: Recency (how recently a purchase was made), Frequency (how often purchases occur), and Monetary (total spending amount)
+
 **Goal**: Based on the dataset, I use Python to classify customers into RFM segment, then visualize results to propose key insights and actionable solutions.
   
 **Links to dataset info:** https://docs.google.com/spreadsheets/d/1yNt8-kkoDyYzq8tYbqWRqqrAfyhPNtBlfSo-9aRvbCY/view
