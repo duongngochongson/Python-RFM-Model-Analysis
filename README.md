@@ -27,6 +27,14 @@ The project aims to analyze customer behavior to enhance marketing strategies fo
 <div id='clean'/>
   
 ## 2. Data Cleaning
+
+The dataset consists of two tables: transaction information and segmentation.
+
+- **Transaction Information**: This table has a many-to-one relationship, where each order ID is linked with multiple product IDs.
+- **Segmentation**: This table includes all RFM scores for each segment.
+
+To clean the data, we will keep records with only positive prices and units, remove canceled orders (IDs starting with 'C'), and change date formats.
+
 ### Import libraries used
 
 ```python
@@ -118,6 +126,9 @@ order_info.info()
 <div id='rfm'/>
 
 ## 3. RFM Segmentation
+
+After data cleaning, I calculated the Recency (days since the last purchase), Frequency (total transactions), and Monetary value (total spending) for each customer. Then I used quintiles to assign RFM scores to these components to determine each customer's segment. Finally, we grouped by segmentation to determine the number of customers, average recency, average frequency, and total revenue for each segment.
+
 ### Create table Customer with their segment table
 
 ```python
@@ -208,3 +219,16 @@ plt.show()
 <div id='insight'/>
 
 ## 5. Insights and Recommendations
+
+By the end of 2011, SuperStore had a *mixed business situation*, with strong segments like Champions, Loyal, and Potential Loyal customers, and weaker segments like Hibernating, About to Sleep, At Risk, and Lost customers. The Champions segment made up 19.36% of total customers, while Hibernating customers accounted for 15.81%.
+
+There are clear differences between customer segments, shown by charts that highlight skewed averages for recency, frequency, and total revenue. This indicates a *significant gap* between strong and weak segments.  Despite having various segments, the company heavily relies on a few top ones, particularly the **Champions** segment, which suggests issues in: *turning new customers into loyal ones* or *customer service that may cause loyal customers to be lost*.
+
+To enhance performance, SuperStore should focus on Recency and Frequency rather than Monetary value, as loyal shoppers often make many purchases at lower amounts throughout the year.
+
+| Segment Type      | Campaign Name               | Description                                                                                       |
+|-------------------|-----------------------------|---------------------------------------------------------------------------------------------------|
+| Good Segments     | Exclusive Rewards Program    | Launch a tiered loyalty program offering exclusive discounts, early access to sales, and gifts. |
+|                   | Personalized Communication    | Send personalized emails with product recommendations based on past purchases and special dates. |
+| Not Good Segments | Re-Engagement Campaign       | Implement targeted email campaigns with discounts to encourage returns and highlight new offerings.|
+|                   | Win-Back Offers              | Create limited-time promotions for lost customers, such as discounts or free gifts, to incentivize returns. |
